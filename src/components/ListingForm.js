@@ -44,7 +44,7 @@ export default function ListingForm() {
                         className="form-control">
                     </input>
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                     <label
                         htmlFor="price"
                         className="form-label">
@@ -59,7 +59,7 @@ export default function ListingForm() {
                         className="form-control">
                     </input>
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                     <label
                         htmlFor="address"
                         className="form-label">
@@ -74,7 +74,7 @@ export default function ListingForm() {
                         className="form-control">
                     </input>
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                     <label
                         htmlFor="details"
                         className="form-label">
@@ -89,7 +89,7 @@ export default function ListingForm() {
                         className="form-control">
                     </input>
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                     <label
                         htmlFor="photos"
                         className="form-label">
@@ -99,13 +99,12 @@ export default function ListingForm() {
                         type="file"
                         id="photos"
                         name="photos"
-                        value={formData.details}
                         onChange={handleChange}
                         className="form-control"
                         multiple>
                     </input>
                 </div>
-
+                <button className="btn btn-primary mt-4">Add</button>
             </form>
         </div>
     )
