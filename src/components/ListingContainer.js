@@ -16,7 +16,7 @@ export default function ListingContainer() {
     }, []);
 
     return (
-        <div className="ListingContainer">
+        <div className="ListingContainer container">
             <h1>Listings</h1>
             <SearchForm />
             <ListingList listings={listings}/>

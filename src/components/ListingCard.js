@@ -2,19 +2,19 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function ListingCard({ listing }) {
-    console.log("LISTING HERE", listing);
     return (
-        <div className="ListingCard col">
-            <h1>ListingCards</h1>
+        <div className="ListingCard col-3">
             <div className="ListingCard">
-                <Carousel showThumbs={false}>
+                <Carousel showThumbs={false} showStatus={false}>
                     {listing.photos.map(photo => (
-                        <div>
+                        <div key={photo.id}>
                             <img src={photo.url} alt=""/>
                         </div>
                     ))}
                 </Carousel>
             </div>
+            <h5>{listing.title}</h5>
+            <p>${listing.price} /night</p>
         </div>
     )
 }
