@@ -1,4 +1,4 @@
-import 'bootswatch/dist/cyborg/bootstrap.min.css';
+import 'bootswatch/dist/journal/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.js';
 // import $ from 'jquery';
 // import Popper from 'popper.js';

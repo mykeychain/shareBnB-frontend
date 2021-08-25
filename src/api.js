@@ -47,10 +47,10 @@ class ShareBnBApi {
         return res.listings
     }
 
-    //   static async register(user) {
-    //     let res = await this.request(`auth/register`, user, "post");
-    //     return res.token;
-    //   }
+    static async addListing(newListing) {
+        let res = await this.request(`listings`, newListing, "post");
+        return res.listing;
+    }
 
     /** Get token after login */
 
