@@ -3,8 +3,10 @@ import { useHistory } from "react-router-dom";
 import ShareBnBApi from "../api";
 
 export default function ListingForm() {
-    const [formData, setFormData] = useState({host_id: 1});
     const history = useHistory();
+
+    const [formData, setFormData] = useState({host_id: 1});
+    const [file, setFile] = useState();
 
     function handleChange(evt) {
         const { name, value } = evt.target;
@@ -15,10 +17,20 @@ export default function ListingForm() {
         }));
     }
 
+    function handleFileChange(evt) {
+        setFile(evt.target.files[0]);
+    }
+
     async function handleSubmit(evt) {
         evt.preventDefault();
-        try{
-            const resp = await ShareBnBApi.addListing(formData);
+        try {
+            const dataArray = new FormData();
+            for (const key in formData) {
+                dataArray.append(key, formData[key])
+            }
+            // dataArray.append("formData", formData);
+            dataArray.append("photo", file);
+            const resp = await ShareBnBApi.addListing(dataArray);
             history.push(`/listings/${resp.id}`)
         } catch(err) {
             console.error(err);
@@ -97,11 +109,12 @@ export default function ListingForm() {
                     </label>
                     <input
                         type="file"
-                        id="photos"
-                        name="photos"
-                        onChange={handleChange}
+                        id="photo"
+                        name="photo"
+                        onChange={handleFileChange}
+                        value={formData.photo}
                         className="form-control"
-                        multiple>
+                        >
                     </input>
                 </div>
                 <button className="btn btn-primary mt-4">Add</button>

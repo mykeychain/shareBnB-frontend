@@ -14,11 +14,15 @@ class ShareBnBApi {
     // the token for interaction with the API will be stored here.
     static token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im5jdWVuY2EiLCJpc19hZG1pbiI6ZmFsc2V9.FEfbmwLONMepcS6mXDubimUJNpFRu1ZS3C3Ppo3gnuQ';
 
-    static async request(endpoint, data = {}, method = "get") {
+    static async request(endpoint, data = {}, method = "get", fileUpload=false) {
         console.debug("API Call:", endpoint, data, method);
 
         const url = `${BASE_URL}/${endpoint}`;
         const headers = { Authorization: `Bearer ${ShareBnBApi.token}` };
+        if (fileUpload) {
+            headers['Content-Type'] = 'multipart/form-data';
+        }
+        
         const params = (method === "get")
             ? data
             : {};
@@ -47,8 +51,8 @@ class ShareBnBApi {
         return res.listings
     }
 
-    static async addListing(newListing) {
-        let res = await this.request(`listings`, newListing, "post");
+    static async addListing(data) {
+        let res = await this.request(`listings`, data, "post", true);
         return res.listing;
     }
 
