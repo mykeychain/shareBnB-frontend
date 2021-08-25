@@ -1,9 +1,13 @@
 import './App.css';
+import NavBar from './components/NavBar';
 import Routes from "./components/Routes";
 
 function App() {
   return (
-    <Routes />
+    <div className='ShareBnBApp'>
+      <NavBar />
+      <Routes />
+    </div>
   );
 }
 

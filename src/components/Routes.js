@@ -1,6 +1,6 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "./Homepage";
-import Listing from "./Listing";
+import ListingContainer from "./ListingContainer";
 import ListingDetails from "./ListingDetails";
 import ListingForm from "./ListingForm";
 import Login from "./Login";
@@ -21,7 +21,7 @@ function Routes() {
                 <Signup />
             </Route>
             <Route exact path="/listings">
-                <Listing />
+                <ListingContainer />
             </Route>
             <Route exact path="/listings/add">
                 <ListingForm />
