@@ -1,0 +1,9 @@
+.Messages-user-list {
+    height: 300px;
+    border-right: 1px solid lightgrey;
+}
+
+.Messages-conversation-box {
+    height: 300px;
+    overflow-y: auto;
+}

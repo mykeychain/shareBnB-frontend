@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import ShareBnBApi from "../api"
 import UserContext from "../userContext";
+import Conversation from "./Conversation";
+import "./Messages.css";
 
 export default function Messages() {
     const [users, setUsers] = useState([])
@@ -46,13 +48,21 @@ export default function Messages() {
         <div className="Messages container mt-2">
             <h1>Messages</h1>
             <div className='row'>
-                <div className='col-3'>
+                <div className='Messages-user-list col-3'>
                     {users.map(user => <p key={user.id} data-userid={user.id} onClick={changeSelected}>{user.first_name}</p>)}
                 </div>
-                <div className='col-9'>
-                    {messages.map(msg => <p key={msg.id}>{msg.text}</p>)}
+                <div className="Messages-conversation-box col">
+                    <Conversation messages={messages}/>
+                    <div className="Conversation-form">
+                        <form className="">
+                            <div className="input-group">
+                                <input className="Conversation-chat-input form-control">
+                                </input>
+                                <button className="btn btn-primary"><i class="bi bi-capslock-fill"></i></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
             </div>
             
         </div>
