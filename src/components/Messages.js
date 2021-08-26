@@ -4,6 +4,8 @@ import UserContext from "../userContext";
 
 export default function Messages() {
     const [users, setUsers] = useState([])
+    const [selectedUserId, setSelectedUserId] = useState(null);
+    const [messages, setMessages] = useState([]);
     const { currentUser } = useContext(UserContext);
 
     useEffect(function getUsersOnMount() {
@@ -24,13 +26,35 @@ export default function Messages() {
         };
 
         _getUsersOnMount();
-    }, [ ])
+    }, []);
+
+    useEffect(function getMessages() {
+        async function _getMessages() {
+            const messages = await ShareBnBApi.getConversation(selectedUserId);
+            setMessages(messages);
+
+        }
+        if (selectedUserId) _getMessages();
+    }, [selectedUserId]);
+
+    function changeSelected(evt) {
+        setSelectedUserId(evt.target.dataset.userid);
+    }
 
 
     return (
-        <div className="Messages">
+        <div className="Messages container mt-2">
             <h1>Messages</h1>
-            {users.map(user => <p>{user.first_name}</p>)}
+            <div className='row'>
+                <div className='col-3'>
+                    {users.map(user => <p key={user.id} data-userid={user.id} onClick={changeSelected}>{user.first_name}</p>)}
+                </div>
+                <div className='col-9'>
+                    {messages.map(msg => <p key={msg.id}>{msg.text}</p>)}
+                </div>
+
+            </div>
+            
         </div>
     )
 }
