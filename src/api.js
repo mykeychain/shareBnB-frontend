@@ -38,8 +38,9 @@ class ShareBnBApi {
 
     // Individual API routes
 
-    /** Get listings */
+    /*************************************************************** Listings */
 
+    /** Get listings by search term */
     static async getListings(term) {
         let res;
 
@@ -64,18 +65,25 @@ class ShareBnBApi {
         return res.listing;
     }
 
+    /*************************************************************** Users */
+
+    /** Handles user sign up */
+    static async signUp(newUser) {
+        let res = await this.request(`users`, newUser, "post");
+        return res.token;
+      }
+
+    /** Handles user log in */
+    static async login(username, password) {
+        let res = await this.request(`login`, { username, password }, "post");
+        return res.token;
+    }
+
     /** Get user */
     static async getUserById(id) {
         let res = await this.request(`users/${id}`);
         return res.user;
     }
-
-    /** Get token after login */
-
-    //   static async login(username, password) {
-    //     let res = await this.request(`auth/token`, { username, password }, "post");
-    //     return res.token;
-    //   }
 
     /** Get a user. */
 

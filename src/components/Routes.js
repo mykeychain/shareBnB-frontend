@@ -8,17 +8,17 @@ import Messages from "./Messages";
 import Profile from "./Profile";
 import Signup from "./Signup";
 
-function Routes() {
+function Routes( {login, signUp} ) {
     return (
         <Switch>
             <Route exact path="/">
                 <Homepage />
             </Route>
             <Route exact path="/login">
-                <Login />
+                <Login login={login}/>
             </Route>
             <Route exact path="/signup">
-                <Signup />
+                <Signup signUp={signUp} />
             </Route>
             <Route exact path="/listings">
                 <ListingContainer />
