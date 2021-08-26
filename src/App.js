@@ -9,7 +9,8 @@ import Navbar from './components/Navbar';
 import Routes from "./components/Routes";
 import { useEffect, useState } from 'react';
 import ShareBnBApi from './api';
-import jsonwebtoken from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+import UserContext from './userContext';
 import { useHistory } from 'react-router-dom';
 
 
@@ -40,7 +41,7 @@ function App() {
       async function _storeTokenAndSetUser() {
         try {
           ShareBnBApi.token = token;
-          const { username } = jsonwebtoken.decode(token);
+          const { username } = jwt.decode(token);
           const user = await ShareBnBApi.getUser(username);
           setCurrentUser(user);
         } catch {
@@ -65,8 +66,8 @@ function App() {
   }
 
   // login: authenticates user with API and logs in
-  async function login(loginCredentials) {
-    const token = await ShareBnBApi.login(loginCredentials);
+  async function login({ username, password } ) {
+    const token = await ShareBnBApi.login(username, password);
     setToken(token);
     localStorage.setItem("token", token);
     history.push("/");
@@ -82,8 +83,10 @@ function App() {
 
   return (
     <div className='ShareBnBApp'>
-      <Navbar />
-      <Routes login={login} signUp={signUp} />
+      <UserContext.Provider value = {{ currentUser, setCurrentUser }}>
+        <Navbar logout={logout} />
+        <Routes login={login} signUp={signUp} />
+      </UserContext.Provider>
     </div>
   );
 }

@@ -19,12 +19,12 @@ export default function Login({ login }) {
 
     return (
         <div className="Login container">
-            <h1>Login</h1>
+            <h1 className='mt-2'>Login</h1>
             <div>
                 <form onSubmit={handleSubmit}>
                     <label
                         htmlFor="username"
-                        className="form-label">Username</label>
+                        className="form-label mt-2">Username</label>
                     <input
                         id="username"
                         name="username"
@@ -34,7 +34,7 @@ export default function Login({ login }) {
                     </input>
                     <label
                         htmlFor="password"
-                        className="form-label">Password</label>
+                        className="form-label mt-2">Password</label>
                     <input
                         type="password"
                         id="password"
@@ -43,7 +43,7 @@ export default function Login({ login }) {
                         onChange={handleChange}
                         className="form-control">
                     </input>
-                    <button className="btn btn-primary">Login</button>
+                    <button className="btn btn-primary mt-2">Login</button>
                 </form>
             </div>
         </div>

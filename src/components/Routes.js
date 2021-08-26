@@ -8,7 +8,7 @@ import Messages from "./Messages";
 import Profile from "./Profile";
 import Signup from "./Signup";
 
-function Routes( {login, signUp} ) {
+function Routes( {login, signUp, logout} ) {
     return (
         <Switch>
             <Route exact path="/">

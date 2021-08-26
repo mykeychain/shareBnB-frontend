@@ -12,7 +12,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class ShareBnBApi {
     // the token for interaction with the API will be stored here.
-    static token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im5jdWVuY2EiLCJpc19hZG1pbiI6ZmFsc2V9.FEfbmwLONMepcS6mXDubimUJNpFRu1ZS3C3Ppo3gnuQ';
+    static token;
 
     static async request(endpoint, data = {}, method = "get", fileUpload=false) {
         console.debug("API Call:", endpoint, data, method);
@@ -87,10 +87,10 @@ class ShareBnBApi {
 
     /** Get a user. */
 
-    //   static async getUser(username) {
-    //     let res = await this.request(`users/${username}`);
-    //     return res.user;
-    //   }
+    static async getUser(username) {
+        let res = await this.request(`users?q=${username}`);
+        return res.user;
+    }
 
     /** Update user profile.
      * 
