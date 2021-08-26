@@ -6,7 +6,7 @@ export default function ListingForm() {
     const history = useHistory();
 
     const [formData, setFormData] = useState({host_id: 1});
-    const [file, setFile] = useState();
+    const [files, setFile] = useState([]);
 
     function handleChange(evt) {
         const { name, value } = evt.target;
@@ -18,7 +18,7 @@ export default function ListingForm() {
     }
 
     function handleFileChange(evt) {
-        setFile(evt.target.files[0]);
+        setFile(evt.target.files);
     }
 
     async function handleSubmit(evt) {
@@ -28,8 +28,9 @@ export default function ListingForm() {
             for (const key in formData) {
                 dataArray.append(key, formData[key])
             }
+            Array.from(files).forEach((file, ind) => dataArray.append(`photo${ind}`, file));
             // dataArray.append("formData", formData);
-            dataArray.append("photo", file);
+            // dataArray.append("photo", file);
             const resp = await ShareBnBApi.addListing(dataArray);
             history.push(`/listings/${resp.id}`)
         } catch(err) {
@@ -109,11 +110,12 @@ export default function ListingForm() {
                     </label>
                     <input
                         type="file"
-                        id="photo"
-                        name="photo"
+                        id="photos"
+                        name="photos"
                         onChange={handleFileChange}
-                        value={formData.photo}
+                        value={formData.photos}
                         className="form-control"
+                        multiple
                         >
                     </input>
                 </div>
