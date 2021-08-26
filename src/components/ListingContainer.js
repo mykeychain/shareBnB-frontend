@@ -10,7 +10,7 @@ export default function ListingContainer() {
 
     useEffect(function loadListings() {
         getListings();
-    }, [ ]);
+    }, []);
 
     async function getListings(searchTerm) {
         if (!isLoading) setIsLoading(true);

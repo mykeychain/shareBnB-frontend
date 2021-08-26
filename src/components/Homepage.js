@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import "./Homepage.css";
 
 const HOMEPAGE_PHOTO_URL = "https://images.squarespace-cdn.com/content/v1/53a5cdfbe4b0e026bea35263/1560616232322-FQZBFZH5OFRK5ICP0XFD/SouthC+%2852%29.jpg?format=1000w"
@@ -23,16 +24,13 @@ export default function Homepage() {
                         Discover our beautiful selection of spaces and wonderful hosts
                     </p>
                     <div className="mx-2 mb-4">
-                        <form>
-                            <input
-                                className="form-control"
-                                placeholder="Where would you like to go?"></input>
-                            <div className="d-grid mt-2">
+                        <div className="d-grid mt-2">
+                            <Link exact to='/listings'>
                                 <button className="btn btn-primary">
-                                    <i className="bi bi-search"></i> Search
+                                    <i className="bi bi-search"></i> Go to Listings
                                 </button>
-                            </div>
-                        </form>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

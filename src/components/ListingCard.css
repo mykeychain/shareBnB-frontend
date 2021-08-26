@@ -5,3 +5,13 @@
 .ListingCard h5 {
     margin-top: 4px;
 }
+
+.ListingCard a {
+    text-decoration: none;
+}
+
+.ListingCard a p {
+    color: grey;
+    margin-top: 0;
+    margin-bottom: 0;
+}

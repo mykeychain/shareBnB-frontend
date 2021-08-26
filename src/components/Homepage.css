@@ -8,6 +8,10 @@
     box-shadow: 0 4px 8px 0 grey
 }
 
+.Homepage-search-div button {
+    width: 100%;
+}
+
 .Homepage-photo {
     border-radius: 15px;
 }
