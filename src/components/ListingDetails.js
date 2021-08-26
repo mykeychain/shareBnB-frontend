@@ -12,7 +12,6 @@ export default function ListingDetails() {
         async function getListingInfo() {
             const curr_listing = await ShareBnBApi.getListingById(id);
             const curr_host = await ShareBnBApi.getUserById(curr_listing.host_id);
-            console.log('HOST', curr_host);
             setListing(curr_listing);
             setHost(curr_host);
         }

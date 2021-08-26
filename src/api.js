@@ -61,13 +61,12 @@ class ShareBnBApi {
 
     static async getListingById(id) {
         let res = await this.request(`listings/${id}`);
-        console.log(res);
         return res.listing;
     }
 
     /** Get user */
     static async getUserById(id) {
-        let res = await this.request(`users/${id}`)
+        let res = await this.request(`users/${id}`);
         return res.user;
     }
 
