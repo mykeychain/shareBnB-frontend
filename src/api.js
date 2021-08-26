@@ -92,6 +92,27 @@ class ShareBnBApi {
         return res.user;
     }
 
+    /*************************************************************** Messages */
+
+    /** Handles sending a message */
+    static async send(toUserId, message) {
+        let res = await this.request(`messages/${toUserId}`, message, "post");
+        return res.msg;
+      }
+
+    /** Gets all message to or from current user */
+    static async getAllMessages() {
+        let res = await this.request(`messages`);
+        console.log("AFTER REQUEST", res)
+        return res.msgs;
+    }
+
+    /** Get all messages between users */
+    static async getConversation(toUserId) {
+        let res = await this.request(`messages/${toUserId}`);
+        return res.msgs;
+    }
+
     /** Update user profile.
      * 
      *  formData like: { firstName, lastName, email, password}

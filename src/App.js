@@ -12,6 +12,7 @@ import ShareBnBApi from './api';
 import jwt from "jsonwebtoken";
 import UserContext from './userContext';
 import { useHistory } from 'react-router-dom';
+import Loading from './components/Loading';
 
 
 function App() {
@@ -85,7 +86,7 @@ function App() {
     <div className='ShareBnBApp'>
       <UserContext.Provider value = {{ currentUser, setCurrentUser }}>
         <Navbar logout={logout} />
-        <Routes login={login} signUp={signUp} />
+        {isAuthenticating ? <Loading /> : <Routes login={login} signUp={signUp} />}
       </UserContext.Provider>
     </div>
   );
