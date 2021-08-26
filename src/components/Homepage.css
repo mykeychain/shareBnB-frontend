@@ -1,0 +1,13 @@
+.Homepage-search-div {
+    position: absolute;
+    top: 140px;
+    right: 45px;
+    background-color: white;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 grey
+}
+
+.Homepage-photo {
+    border-radius: 15px;
+}

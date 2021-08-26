@@ -14,13 +14,18 @@ nav a {
     text-decoration: none;
 }
 
+nav a:hover {
+    color: black;
+    text-decoration: none;
+}
+
 nav a.active {
     color: black;
     text-decoration: none;
 }
 
-nav a:hover {
-    color: black;
+nav a.active:hover {
+    color: white;
     text-decoration: none;
 }
 

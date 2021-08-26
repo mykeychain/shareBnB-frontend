@@ -1,4 +1,5 @@
 import 'bootswatch/dist/journal/bootstrap.min.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 // import 'bootstrap/dist/js/bootstrap.js';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
