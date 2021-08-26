@@ -25,7 +25,7 @@ export default function Homepage() {
                     </p>
                     <div className="mx-2 mb-4">
                         <div className="d-grid mt-2">
-                            <Link exact to='/listings'>
+                            <Link to='/listings'>
                                 <button className="btn btn-primary">
                                     <i className="bi bi-search"></i> Go to Listings
                                 </button>
