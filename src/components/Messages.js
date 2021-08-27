@@ -73,6 +73,7 @@ export default function Messages() {
                 <div className='Messages-user-list col-3 list-group'>
                     {users.map(user => (
                         <Link
+                            to="#"
                             className='list-group-item list-group-item-action' 
                             key={user.id} data-userid={user.id} 
                             onClick={changeSelected}>{user.first_name} {user.last_name}
@@ -80,15 +81,17 @@ export default function Messages() {
                 </div>
                 <div className="col-9">
                     <div className="Messages-conversation-box col-12">
-                        <Conversation messages={messages}/>
+                        <div className="Messages-conversation-inner">
+                            <Conversation messages={messages}/>
+                        </div>
                     </div>
                     {selectedUserId && 
-                    <div className="Conversation-form col-12 mb-3">
+                    <div className="Conversation-form col-12 mb-3 mt-5">
                         <form onSubmit={handleSubmit}>
                             <div className="input-group">
                                 <input className="Conversation-chat-input form-control" onChange={handleChange} value={message}>
                                 </input>
-                                <button className="btn btn-primary"><i class="bi bi-capslock-fill"></i></button>
+                                <button className="btn btn-primary"><i className="bi bi-capslock-fill"></i></button>
                             </div>
                         </form>
                     </div>

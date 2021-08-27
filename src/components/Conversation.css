@@ -6,3 +6,8 @@
 .Conversation {
     height: 400px;
 }
+
+.Conversation .message-list {
+    height: 425px;
+    overflow: auto;
+}

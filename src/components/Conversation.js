@@ -21,7 +21,7 @@ export default function Conversation({ messages }) {
                 <MessageList 
                     className="message-list"
                     dataSource={dataSource}
-                    toBottomHeight={1000}/>
+                    toBottomHeight={'100%'}/>
             </div>
         </div>
     )
