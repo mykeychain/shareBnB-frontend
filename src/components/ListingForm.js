@@ -29,8 +29,6 @@ export default function ListingForm() {
                 dataArray.append(key, formData[key])
             }
             Array.from(files).forEach((file, ind) => dataArray.append(`photo${ind}`, file));
-            // dataArray.append("formData", formData);
-            // dataArray.append("photo", file);
             const resp = await ShareBnBApi.addListing(dataArray);
             history.push(`/listings/${resp.id}`)
         } catch(err) {
@@ -52,7 +50,7 @@ export default function ListingForm() {
                         type="text"
                         id="title"
                         name="title"
-                        value={formData.title}
+                        value={formData.title || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -67,7 +65,7 @@ export default function ListingForm() {
                         type="text"
                         id="price"
                         name="price"
-                        value={formData.price}
+                        value={formData.price || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -82,7 +80,7 @@ export default function ListingForm() {
                         type="text"
                         id="address"
                         name="address"
-                        value={formData.address}
+                        value={formData.address || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -97,7 +95,7 @@ export default function ListingForm() {
                         type="text"
                         id="details"
                         name="details"
-                        value={formData.details}
+                        value={formData.details || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -113,7 +111,7 @@ export default function ListingForm() {
                         id="photos"
                         name="photos"
                         onChange={handleFileChange}
-                        value={formData.photos}
+                        value={formData.photos || ""}
                         className="form-control"
                         multiple
                         >

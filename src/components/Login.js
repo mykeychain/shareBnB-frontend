@@ -28,7 +28,7 @@ export default function Login({ login }) {
                     <input
                         id="username"
                         name="username"
-                        value={formData.username}
+                        value={formData.username || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -39,7 +39,7 @@ export default function Login({ login }) {
                         type="password"
                         id="password"
                         name="password"
-                        value={formData.password}
+                        value={formData.password || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>

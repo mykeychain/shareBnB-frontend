@@ -28,7 +28,7 @@ export default function Signup({ signUp }) {
                     <input
                         id="username"
                         name="username"
-                        value={formData.username}
+                        value={formData.username || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -39,7 +39,7 @@ export default function Signup({ signUp }) {
                         type="password"
                         id="password"
                         name="password"
-                        value={formData.password}
+                        value={formData.password || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -49,7 +49,7 @@ export default function Signup({ signUp }) {
                     <input
                         id="first_name"
                         name="first_name"
-                        value={formData.first_name}
+                        value={formData.first_name || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -59,7 +59,7 @@ export default function Signup({ signUp }) {
                     <input
                         id="last_name"
                         name="last_name"
-                        value={formData.last_name}
+                        value={formData.last_name || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -69,7 +69,7 @@ export default function Signup({ signUp }) {
                     <input
                         id="email"
                         name="email"
-                        value={formData.email}
+                        value={formData.email || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
@@ -79,7 +79,7 @@ export default function Signup({ signUp }) {
                     <input
                         id="phone"
                         name="phone"
-                        value={formData.phone}
+                        value={formData.phone || ""}
                         onChange={handleChange}
                         className="form-control">
                     </input>
