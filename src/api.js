@@ -96,7 +96,7 @@ class ShareBnBApi {
 
     /** Handles sending a message */
     static async send(toUserId, message) {
-        let res = await this.request(`messages/${toUserId}`, message, "post");
+        let res = await this.request(`messages/${toUserId}`, {message: message}, "post");
         return res.msg;
       }
 

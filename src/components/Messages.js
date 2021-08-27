@@ -4,11 +4,12 @@ import UserContext from "../userContext";
 import Conversation from "./Conversation";
 import "./Messages.css";
 
-export default function Messages() {
+export default function Messages({}) {
     const [users, setUsers] = useState([])
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [messages, setMessages] = useState([]);
     const { currentUser } = useContext(UserContext);
+    const [message, setMessage] = useState("");
 
     useEffect(function getUsersOnMount() {
         async function _getUsersOnMount() {
@@ -43,26 +44,40 @@ export default function Messages() {
         setSelectedUserId(evt.target.dataset.userid);
     }
 
+    function handleChange(evt) {
+        setMessage(evt.target.value);
+    }
+
+    async function handleSubmit(evt) {
+        evt.preventDefault()
+        const msg = await ShareBnBApi.send(selectedUserId, message);
+        setMessage("");
+        setMessages([...messages, msg]);
+    }
+
+
 
     return (
         <div className="Messages container mt-2">
             <h1>Messages</h1>
-            <div className='row'>
+            <div className='row mt-2'>
                 <div className='Messages-user-list col-3'>
                     {users.map(user => <p key={user.id} data-userid={user.id} onClick={changeSelected}>{user.first_name}</p>)}
                 </div>
                 <div className="Messages-conversation-box col">
                     <Conversation messages={messages}/>
-                    <div className="Conversation-form">
-                        <form className="">
+                </div>
+                    {selectedUserId && 
+                    <div className="Conversation-form offset-3 col-9">
+                        <form onSubmit={handleSubmit}>
                             <div className="input-group">
-                                <input className="Conversation-chat-input form-control">
+                                <input className="Conversation-chat-input form-control" onChange={handleChange} value={message}>
                                 </input>
                                 <button className="btn btn-primary"><i class="bi bi-capslock-fill"></i></button>
                             </div>
                         </form>
                     </div>
-                </div>
+                    }
             </div>
             
         </div>

@@ -4,6 +4,15 @@
 }
 
 .Messages-conversation-box {
-    height: 300px;
+    height: 500px;
     overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.Messages-conversation-box .rce-mbox-right {
+    background-color: rgb(156, 252, 156);
+}
+
+.Messages-conversation-box .rce-mbox-right svg {
+    fill: rgb(156, 252, 156);
 }

@@ -25,6 +25,7 @@ export default function Navbar({ logout }) {
         <nav className="Navbar navbar navbar-dark bg-primary d-flex bd-highlight sticky-top mb-4">
           <div className="me-auto pl-0 bd-highlight navbar-brand"><NavLink exact to='/'><i className="bi bi-house-fill"></i> ShareBnB</NavLink></div>
           <div className="bd-highlight"><NavLink exact to='/listings'>Listings</NavLink></div>
+          <div className="bd-highlight"><NavLink exact to='/messages'>Messages</NavLink></div>
           <div className="me-3 bd-highlight"><NavLink exact to='/logout'onClick={logout}>Logout</NavLink></div>
         </nav>
       );
