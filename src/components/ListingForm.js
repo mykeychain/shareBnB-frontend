@@ -112,6 +112,7 @@ export default function ListingForm() {
                         name="photos"
                         onChange={handleFileChange}
                         value={formData.photos || ""}
+                        accept="image/*,.pdf"
                         className="form-control"
                         multiple
                         >
