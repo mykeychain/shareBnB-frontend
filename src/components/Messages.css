@@ -17,3 +17,12 @@
 .Messages-conversation-box .rce-mbox-right svg {
     fill: rgb(156, 252, 156);
 }
+
+.MessagesHeader { 
+    display: flex; 
+    justify-content: space-between; 
+} 
+
+.Messages-user-list a:hover {
+    cursor: pointer;
+}

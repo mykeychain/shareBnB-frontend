@@ -37,7 +37,7 @@ export default function ListingDetails() {
                     <div className='col-6'>
                         <h1>{listing.title}</h1>
                         <h2>{listing.address}</h2>
-                        <h2>Hi <small class='text muted'>${listing.price} /night</small></h2>
+                        <h2>${listing.price} /night</h2>
                         <h4>Hosted by: {host.first_name} {host.last_name} - {host.username}</h4>
                         <h4>{listing.details}</h4>
                     </div>
