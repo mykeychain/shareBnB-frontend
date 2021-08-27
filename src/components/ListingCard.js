@@ -5,12 +5,12 @@ import './ListingCard.css'
 
 export default function ListingCard({ listing }) {
     return (
-            <div className="ListingCard col-sm-3 col-6 mb-4">
+            <div className="ListingCard col-lg-3 col-sm-4 col-6 mb-4">
                 <div className="ListingCardCarousel">
-                    <Carousel showThumbs={false} showStatus={false} infiniteLoop={true}>
+                    <Carousel showThumbs={false} showStatus={false} infiniteLoop={true} dynamicHeight={false}>
                         {listing.photos.map(photo => (
                             <Link to={`/listings/${listing.id}`}>
-                                <div key={photo.id}>
+                                <div className="ListingCardCarousel-div" key={photo.id}>
                                     <img src={photo.url} alt=""/>
                                 </div>
                             </Link>

@@ -1,5 +1,20 @@
+.ListingCardCarousel-div {
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+    .ListingCardCarousel-div {
+        height: 175px;
+    }
+}
+
+
 .ListingCardCarousel img {
-    border-radius: 10px
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: -10% 50%;
 }
 
 .ListingCard h5 {

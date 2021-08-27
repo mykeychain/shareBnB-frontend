@@ -20,7 +20,8 @@ export default function Conversation({ messages }) {
             <div>
                 <MessageList 
                     className="message-list"
-                    dataSource={dataSource}/>
+                    dataSource={dataSource}
+                    toBottomHeight={1000}/>
             </div>
         </div>
     )

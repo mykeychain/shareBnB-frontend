@@ -9,9 +9,9 @@ const HOMEPAGE_PHOTO_URL = "https://images.squarespace-cdn.com/content/v1/53a5cd
 
 export default function Homepage() {
     return (
-        <div className="Homepage container">
+        <div className="Homepage">
             <div className="row mt-3">
-                <div className="Homepage-photo-div col-sm-10 ms-sm-4 ps-sm-3">
+                <div className="Homepage-photo-div col-sm-10 ms-sm-4 ps-sm-3 mb-4">
                     <img
                         className="Homepage-photo img-fluid"
                         src={HOMEPAGE_PHOTO_URL} alt="Homepage" />

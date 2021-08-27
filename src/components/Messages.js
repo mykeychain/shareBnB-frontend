@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import ShareBnBApi from "../api"
 import UserContext from "../userContext";
 import Conversation from "./Conversation";
 import "./Messages.css";
 
-export default function Messages({}) {
+export default function Messages() {
     const [users, setUsers] = useState([])
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [messages, setMessages] = useState([]);
@@ -58,26 +59,31 @@ export default function Messages({}) {
     }
 
     return (
-        <div className="Messages container mt-2 p-0">
-            <div class="MessagesHeader"> 
-                <h1 class='flex-items'>Messages</h1>
-                {selectedUserId && <h1 class='flex-items'>{messagingUser}</h1>}
+        <div className="Messages col-11 mx-auto mt-3 p-0">
+            <div className="MessagesHeader row"> 
+                <div className="col-3">
+                    <h1>Messages</h1>
+                </div>
+                <div className="col-5">
+                    {selectedUserId && <h1>{messagingUser}</h1>}
+                </div>
             </div> 
             
             <div className='row mt-2'>
                 <div className='Messages-user-list col-3 list-group'>
                     {users.map(user => (
-                        <a
+                        <Link
                             className='list-group-item list-group-item-action' 
                             key={user.id} data-userid={user.id} 
                             onClick={changeSelected}>{user.first_name} {user.last_name}
-                        </a>))}
+                        </Link>))}
                 </div>
-                <div className="Messages-conversation-box col">
-                    <Conversation messages={messages}/>
-                </div>
+                <div className="col-9">
+                    <div className="Messages-conversation-box col-12">
+                        <Conversation messages={messages}/>
+                    </div>
                     {selectedUserId && 
-                    <div className="Conversation-form offset-3 col-9">
+                    <div className="Conversation-form col-12 mb-3">
                         <form onSubmit={handleSubmit}>
                             <div className="input-group">
                                 <input className="Conversation-chat-input form-control" onChange={handleChange} value={message}>
@@ -87,6 +93,7 @@ export default function Messages({}) {
                         </form>
                     </div>
                     }
+                </div>
             </div>
             
         </div>

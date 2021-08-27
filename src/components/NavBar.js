@@ -22,21 +22,22 @@ export default function Navbar({ logout }) {
 
   if (currentUser.username) {
     return (
-        <nav className="Navbar navbar navbar-dark bg-primary d-flex bd-highlight sticky-top mb-4">
-          <div className="me-auto pl-0 bd-highlight navbar-brand"><NavLink exact to='/'><i className="bi bi-house-fill"></i> ShareBnB</NavLink></div>
-          <div className="bd-highlight"><NavLink exact to='/listings'>Listings</NavLink></div>
-          <div className="bd-highlight"><NavLink exact to='/messages'>Messages</NavLink></div>
-          <div className="me-3 bd-highlight"><NavLink exact to='/logout'onClick={logout}>Logout</NavLink></div>
+        <nav className="Navbar navbar navbar-dark bg-primary d-flex sticky-top mb-4">
+          <div className="me-auto ps-4 navbar-brand"><NavLink exact to='/'><i className="bi bi-house-fill"></i> ShareBnB</NavLink></div>
+          <div><NavLink exact to='/listings'>Listings</NavLink></div>
+          <div><NavLink exact to='/listings/add'>Add Listing</NavLink></div>
+          <div><NavLink exact to='/messages'>Messages</NavLink></div>
+          <div className="pe-3"><NavLink exact to='/logout'onClick={logout}>Logout</NavLink></div>
         </nav>
       );
   } 
   
   return (
-        <nav className="Navbar navbar navbar-dark bg-primary d-flex mb-4">
-          <div className="me-auto ps-2 navbar-brand"><NavLink exact to='/'><i className="bi bi-house-fill"></i> ShareBnB</NavLink></div>
-          <div className="me-0 navlink"><NavLink exact to='/listings'>Listings</NavLink></div>
-          <div className="me-0 navlink"><NavLink exact to='/signup'>Signup</NavLink></div>
-          <div className="me-2 navlink"><NavLink exact to='/login'>Login</NavLink></div>
+        <nav className="Navbar navbar navbar-dark bg-primary d-flex sticky-top mb-4">
+          <div className="me-auto ps-4 navbar-brand"><NavLink exact to='/'><i className="bi bi-house-fill"></i> ShareBnB</NavLink></div>
+          <div><NavLink exact to='/listings'>Listings</NavLink></div>
+          <div><NavLink exact to='/signup'>Signup</NavLink></div>
+          <div className="pe-3"><NavLink exact to='/login'>Login</NavLink></div>
         </nav>
     )   
 }

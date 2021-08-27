@@ -16,7 +16,7 @@ export default function SearchForm({ search }) {
         <div className="SearchForm my-3">
             <form onSubmit={handleSubmit}>
                 <div className="row g-1">
-                    <div className="col-10">
+                    <div className="col-sm-10 col-12">
                         <input
                             name="searchTerm"
                             value={searchTerm}

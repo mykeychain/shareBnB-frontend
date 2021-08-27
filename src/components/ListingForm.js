@@ -39,7 +39,7 @@ export default function ListingForm() {
     }
 
     return (
-        <div className="ListingForm container">
+        <div className="ListingForm col-11 mx-auto mt-3">
             <h4>Add a Listing</h4>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
