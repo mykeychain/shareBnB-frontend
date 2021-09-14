@@ -1,11 +1,11 @@
-.ListingCardCarousel-div {
+.ListingCardCarouselPhoto {
     height: 150px;
     border-radius: 10px;
     overflow: hidden;
 }
 
 @media only screen and (min-width: 992px) {
-    .ListingCardCarousel-div {
+    .ListingCardCarouselPhoto {
         height: 175px;
     }
 }

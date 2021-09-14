@@ -19,7 +19,7 @@ export default function ListingCard({ listing }) {
                     <Carousel showThumbs={false} showStatus={false} infiniteLoop={true} dynamicHeight={false}>
                         {listing.photos.map(photo => (
                             <Link to={`/listings/${listing.id}`} key={photo.id}>
-                                <div className="ListingCardCarousel-div" key={photo.id}>
+                                <div className="ListingCardCarouselPhoto" key={photo.id}>
                                     <img src={photo.url} alt=""/>
                                 </div>
                             </Link>
