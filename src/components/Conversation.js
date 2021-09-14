@@ -17,12 +17,10 @@ export default function Conversation({ messages }) {
 
     return (
         <div className="Conversation">
-            <div>
                 <MessageList 
                     className="message-list"
                     dataSource={dataSource}
                     toBottomHeight={'100%'}/>
-            </div>
         </div>
     )
 }
