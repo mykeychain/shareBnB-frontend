@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
-import { Link } from "react-router-dom";
 import ShareBnBApi from "../api"
 import UserContext from "../userContext";
 import Conversation from "./Conversation";
-import "./MessagesContainer.css";
+import MessagedUserList from "./MessagedUserList";
+import MessagingForm from "./MessagingForm";
 
 /** MessagesContainer
  * 
@@ -19,13 +19,12 @@ import "./MessagesContainer.css";
  *  Context:
  *      - currentUser
  *  
- *  Routes -> MessagesContainer -> { UserList, Conversation, MessageForm }
+ *  Routes -> MessagesContainer -> { UserList, Conversation, MessagingForm }
  */
 export default function MessagesContainer() {
     const [users, setUsers] = useState([])
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [messages, setMessages] = useState([]);
-    const [message, setMessage] = useState("");
     const [messagingUser, setMessagingUser] = useState("");
 
     const { currentUser } = useContext(UserContext);
@@ -64,19 +63,13 @@ export default function MessagesContainer() {
         setMessagingUser(evt.target.innerHTML);
     }
 
-    function handleChange(evt) {
-        setMessage(evt.target.value);
-    }
-
-    async function handleSubmit(evt) {
-        evt.preventDefault()
+    async function sendMessage(message) {
         const msg = await ShareBnBApi.send(selectedUserId, message);
-        setMessage("");
         setMessages([...messages, msg]);
     }
 
     return (
-        <div className="Messages col-11 mx-auto mt-3 p-0">
+        <div className="MessagesContainer col-11 mx-auto mt-3 p-0">
             <div className="MessagesHeader row"> 
                 <div className="col-3">
                     <h1>Messages</h1>
@@ -87,32 +80,14 @@ export default function MessagesContainer() {
             </div> 
             
             <div className='row mt-2'>
-                <div className='Messages-user-list col-3 list-group'>
-                    {users.map(user => (
-                        <Link
-                            to="#"
-                            className='list-group-item list-group-item-action' 
-                            key={user.id} data-userid={user.id} 
-                            onClick={changeSelected}>{user.first_name} {user.last_name}
-                        </Link>))}
+                <div className="col-3">
+                    <MessagedUserList changeSelected={changeSelected} users={users}/>
                 </div>
                 <div className="col-9">
-                    <div className="Messages-conversation-box col-12">
-                        <div className="Messages-conversation-inner">
-                            <Conversation messages={messages}/>
-                        </div>
+                    <Conversation messages={messages}/>
+                    <div className="mb-3 mt-5">
+                        {selectedUserId && <MessagingForm sendMessage={sendMessage}/>}
                     </div>
-                    {selectedUserId && 
-                    <div className="Conversation-form col-12 mb-3 mt-5">
-                        <form onSubmit={handleSubmit}>
-                            <div className="input-group">
-                                <input className="Conversation-chat-input form-control" onChange={handleChange} value={message}>
-                                </input>
-                                <button className="btn btn-primary"><i className="bi bi-capslock-fill"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    }
                 </div>
             </div>
             

@@ -11,3 +11,15 @@
     height: 425px;
     overflow: auto;
 }
+
+.Conversation .rce-mbox-right {
+    background-color: rgb(156, 252, 156);
+}
+
+.Conversation .rce-mbox-right svg {
+    fill: rgb(156, 252, 156);
+}
+
+.Conversation .rce-container-mbox {
+    margin: 10px 0;
+}

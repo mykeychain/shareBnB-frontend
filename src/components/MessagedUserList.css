@@ -1,0 +1,9 @@
+.MessagedUserList {
+    height: 425px;
+    border-right: 1px solid lightgrey;
+    overflow-y: auto;
+}
+
+.MessagedUserList a:hover {
+    cursor: pointer;
+}
