@@ -1,7 +1,0 @@
-- Protect routes
-- Method to initiate conversations with other users
-  pop up modal is a good idea here
-- Docstring
-- Reformat MessagesContainer.js
-- Profile.js
-- Method to delete listings

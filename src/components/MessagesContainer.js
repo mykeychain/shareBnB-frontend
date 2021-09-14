@@ -2,17 +2,33 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import ShareBnBApi from "../api"
 import UserContext from "../userContext";
-import Conversation from "./MessageList";
-import "./Messages.css";
+import Conversation from "./Conversation";
+import "./MessagesContainer.css";
 
-
-export default function Messages() {
+/** MessagesContainer
+ * 
+ *  Messaging page to have conversations with other users
+ * 
+ *  State:
+ *      - users
+ *      - selectedUserId
+ *      - messages
+ *      - message
+ *      - messagingUser
+ *      
+ *  Context:
+ *      - currentUser
+ *  
+ *  Routes -> MessagesContainer -> { UserList, Conversation, MessageForm }
+ */
+export default function MessagesContainer() {
     const [users, setUsers] = useState([])
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [messages, setMessages] = useState([]);
-    const { currentUser } = useContext(UserContext);
     const [message, setMessage] = useState("");
     const [messagingUser, setMessagingUser] = useState("");
+
+    const { currentUser } = useContext(UserContext);
 
     useEffect(function getUsersOnMount() {
         async function _getUsersOnMount() {

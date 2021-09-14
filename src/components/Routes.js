@@ -4,7 +4,7 @@ import ListingContainer from "./ListingContainer";
 import ListingDetails from "./ListingDetails";
 import ListingForm from "./ListingForm";
 import Login from "./Login";
-import Messages from "./MessagesContainer";
+import MessagesContainer from "./MessagesContainer";
 import Profile from "./Profile";
 import Signup from "./Signup";
 
@@ -37,7 +37,7 @@ function Routes( {login, signUp, logout} ) {
                 <ListingDetails />
             </Route>
             <Route exact path="/messages">
-                <Messages />
+                <MessagesContainer />
             </Route>
             <Route exact path="/profile">
                 <Profile />
