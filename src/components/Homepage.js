@@ -7,6 +7,12 @@ const HOMEPAGE_PHOTO_URL = "https://images.squarespace-cdn.com/content/v1/53a5cd
 // const HOMEPAGE_PHOTO_URL = "https://www.houselogic.com/wp-content/uploads/2018/03/backyard-before-and-after-standard_a1ef8b1bf55a9acd18f14686d2fc6a00.jpg?crop&resize=2560%2C1706"
 // const HOMEPAGE_PHOTO_URL = "https://cdn.mos.cms.futurecdn.net/EVWssJbH5AyYxFhwGSpB8d-1024-80.jpg.webp"
 
+/** Homepage
+ * 
+ *  Landing page of app
+ *  
+ *  Routes -> Homepage
+ */
 export default function Homepage() {
     return (
         <div className="Homepage">

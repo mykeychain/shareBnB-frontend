@@ -1,5 +1,17 @@
 import { useState } from "react"
 
+/** Login
+ * 
+ *  Login form to handle logging into ShareBnB app
+ * 
+ *  Props:
+ *      - login()
+ * 
+ *  State:
+ *      - formData
+ *  
+ *  Routes -> Login
+ */
 export default function Login({ login }) {
     const [formData, setFormData] = useState({});
 

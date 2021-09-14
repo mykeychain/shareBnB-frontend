@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import ShareBnBApi from "../api"
 import UserContext from "../userContext";
-import Conversation from "./Conversation";
+import Conversation from "./MessageList";
 import "./Messages.css";
+
 
 export default function Messages() {
     const [users, setUsers] = useState([])

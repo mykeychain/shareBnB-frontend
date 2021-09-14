@@ -4,6 +4,19 @@ import { useParams } from 'react-router-dom';
 import ShareBnBApi from "../api";
 import './ListingDetails.css';
 
+/** ListingDetails
+ * 
+ *  Listing Detail page that shows information about listing
+ * 
+ *  Params:
+ *      - id
+ * 
+ *  State:
+ *      - listing
+ *      - host
+ *  
+ *  Routes -> ListingDetails
+ */
 export default function ListingDetails() {
     const { id } = useParams();
     const [listing, setListing] = useState(null);

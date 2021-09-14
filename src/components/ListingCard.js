@@ -3,6 +3,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
 import './ListingCard.css'
 
+/** ListingCard
+ * 
+ *  ListingCard that makes up display of listings in ListingContainer
+ * 
+ *  Props:
+ *      - listing
+ *  
+ *  ListingList -> ListingCard
+ */
 export default function ListingCard({ listing }) {
     return (
             <div className="ListingCard col-lg-3 col-sm-4 col-6 mb-4">

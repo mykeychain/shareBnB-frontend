@@ -4,9 +4,16 @@ import ListingContainer from "./ListingContainer";
 import ListingDetails from "./ListingDetails";
 import ListingForm from "./ListingForm";
 import Login from "./Login";
-import Messages from "./Messages";
+import Messages from "./MessagesContainer";
 import Profile from "./Profile";
 import Signup from "./Signup";
+
+/** Routes
+ * 
+ *  App -> Routes -> { Homepage, Login, Signup, ListingContainer, 
+ *                     ListingForm, ListingDetails, MessagesContainer,
+ *                     Profile }
+ */
 
 function Routes( {login, signUp, logout} ) {
     return (

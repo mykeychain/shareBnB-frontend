@@ -14,7 +14,18 @@ import UserContext from './userContext';
 import { useHistory } from 'react-router-dom';
 import Loading from './components/Loading';
 
-
+/** ShareBnB App
+ * 
+ *  State:
+ *      - isAuthenticating
+ *      - currentUser
+ *      - token
+ * 
+ *  Context:
+ *      - UserContext { currentUser, setCurrentUser }
+ *  
+ *  App -> { Navbar, Routes }
+ */
 function App() {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [currentUser, setCurrentUser] = useState({});

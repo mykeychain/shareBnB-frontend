@@ -4,6 +4,16 @@ import Loading from "./Loading";
 import React, { useEffect, useState } from "react";
 import ShareBnBApi from "../api";
 
+/** ListingContainer
+ * 
+ *  Listing page that contains listings and listing search bar
+ * 
+ *  State:
+ *      - listings
+ *      - isLoading
+ *  
+ *  Routes -> ListingContainer -> { SearchForm, ListingList }
+ */
 export default function ListingContainer() {
     const [listings, setListings] = useState([]);
     const [isLoading, setIsLoading] = useState(true);

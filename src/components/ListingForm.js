@@ -2,11 +2,21 @@ import { useState } from "react"
 import { useHistory } from "react-router-dom";
 import ShareBnBApi from "../api";
 
+/** ListingForm
+ * 
+ *  Form to add a listing
+ * 
+ *  State:
+ *      - formData
+ *      - imageFiles
+ *  
+ *  App -> { Navbar, Routes }
+ */
 export default function ListingForm() {
     const history = useHistory();
 
     const [formData, setFormData] = useState({host_id: 1});
-    const [files, setFile] = useState([]);
+    const [imageFiles, setImageFiles] = useState([]);
 
     function handleChange(evt) {
         const { name, value } = evt.target;
@@ -18,7 +28,7 @@ export default function ListingForm() {
     }
 
     function handleFileChange(evt) {
-        setFile(evt.target.files);
+        setImageFiles(evt.target.imageFiles);
     }
 
     async function handleSubmit(evt) {
@@ -28,7 +38,7 @@ export default function ListingForm() {
             for (const key in formData) {
                 dataArray.append(key, formData[key])
             }
-            Array.from(files).forEach((file, ind) => dataArray.append(`photo${ind}`, file));
+            Array.from(imageFiles).forEach((file, ind) => dataArray.append(`photo${ind}`, file));
             const resp = await ShareBnBApi.addListing(dataArray);
             history.push(`/listings/${resp.id}`)
         } catch(err) {
