@@ -4,7 +4,18 @@ import 'react-chat-elements/dist/main.css';
 import UserContext from '../userContext';
 import "./Conversation.css";
 
-
+/** Conversation
+ * 
+ *  Conversation component that contains messages to and from users
+ * 
+ *  Prop:
+ *      - messages
+ *      
+ *  Context:
+ *      - currentUser
+ *  
+ *  MessagesContainer -> Conversation
+ */
 export default function Conversation({ messages }) {
     const { currentUser } = useContext(UserContext);
 
@@ -17,10 +28,10 @@ export default function Conversation({ messages }) {
 
     return (
         <div className="Conversation">
-                <MessageList 
-                    className="message-list"
-                    dataSource={dataSource}
-                    toBottomHeight={'100%'}/>
+            <MessageList 
+                className="message-list"
+                dataSource={dataSource}
+                toBottomHeight={'100%'}/>
         </div>
     )
 }

@@ -1,5 +1,17 @@
 import { useState } from "react";
 
+/** MessagesForm
+ * 
+ *  MessagingForm to send messages to other users
+ * 
+ *  Props:
+ *      - sendMessage
+ * 
+ *  State:
+ *      - message
+ *  
+ *  MessagesContainer -> Messaging Form
+ */
 export default function MessagingForm({ sendMessage }) {
     const [message, setMessage] = useState("");
 

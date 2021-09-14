@@ -19,7 +19,7 @@ import MessagingForm from "./MessagingForm";
  *  Context:
  *      - currentUser
  *  
- *  Routes -> MessagesContainer -> { UserList, Conversation, MessagingForm }
+ *  Routes -> MessagesContainer -> { MessagedUserList, Conversation, MessagingForm }
  */
 export default function MessagesContainer() {
     const [users, setUsers] = useState([])

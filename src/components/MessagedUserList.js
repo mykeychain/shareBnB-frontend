@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 import "./MessagedUserList.css"
 
+/** MessagedUserList
+ * 
+ *  Generates list of messaged users
+ * 
+ *  Props:
+ *      - users
+ *      - changedSelected
+ *  
+ *  MessagesContainer -> MessagedUserList
+ */
 export default function MessagedUserList({ changeSelected, users }) {
     return (
     <div className='MessagedUserList list-group'>
