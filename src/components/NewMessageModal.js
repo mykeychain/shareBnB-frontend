@@ -15,16 +15,29 @@ export default function NewMessageModal({ sendMessage }) {
 
     return (
         <div className="col-1">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
                 <i className="bi bi-pencil-square"></i>
             </button>
 
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div
+                className="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
-                                <input className="form-control" type="text" value={toUser} onChange={handleChange} placeholder="Who would you like to message?" />
+                                <input
+                                    className="form-control"
+                                    type="text" value={toUser}
+                                    onChange={handleChange}
+                                    placeholder="Who would you like to message?" />
                             </h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
