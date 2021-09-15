@@ -7,3 +7,8 @@
 .MessagedUserList a:hover {
     cursor: pointer;
 }
+
+.MessagedUserList a.selected {
+    background-color: #eb6864;
+    color: white;
+}

@@ -4,6 +4,7 @@ import UserContext from "../userContext";
 import Conversation from "./Conversation";
 import MessagedUserList from "./MessagedUserList";
 import MessagingForm from "./MessagingForm";
+import NewMessageModal from "./NewMessageModal";
 
 /** MessagesContainer
  * 
@@ -63,8 +64,8 @@ export default function MessagesContainer() {
         setMessagingUser(evt.target.innerHTML);
     }
 
-    async function sendMessage(message) {
-        const msg = await ShareBnBApi.send(selectedUserId, message);
+    async function sendMessage(message, toUserId=selectedUserId) {
+        const msg = await ShareBnBApi.send(toUserId, message);
         setMessages([...messages, msg]);
     }
 
@@ -74,14 +75,18 @@ export default function MessagesContainer() {
                 <div className="col-3">
                     <h1>Messages</h1>
                 </div>
-                <div className="col-5">
+                <div className="col-8">
                     {selectedUserId && <h1>{messagingUser}</h1>}
                 </div>
+                <NewMessageModal sendMessage={sendMessage} />
             </div> 
             
             <div className='row mt-2'>
                 <div className="col-3">
-                    <MessagedUserList changeSelected={changeSelected} users={users}/>
+                    <MessagedUserList
+                        selectedUserId={selectedUserId}
+                        changeSelected={changeSelected}
+                        users={users} />
                 </div>
                 <div className="col-9">
                     <Conversation messages={messages}/>
