@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useParams } from 'react-router-dom';
 import ShareBnBApi from "../api";
+import NewMessageModal from "./NewMessageModal";
 import './ListingDetails.css';
 
 /** ListingDetails
@@ -17,7 +18,7 @@ import './ListingDetails.css';
  *  
  *  Routes -> ListingDetails
  */
-export default function ListingDetails() {
+export default function ListingDetails({ sendMessage }) {
     const { id } = useParams();
     const [listing, setListing] = useState(null);
     const [host, setHost] = useState(null);
@@ -52,6 +53,7 @@ export default function ListingDetails() {
                         <h2 className="text-muted">{listing.address}</h2>
                         <h2 className="text-muted">${listing.price} /night</h2>
                         <h4>Hosted by: {host.first_name} {host.last_name} - {host.username}</h4>
+                        <NewMessageModal host={host} sendMessage={sendMessage}/>
                         <h4>{listing.details}</h4>
                     </div>
                 </div>

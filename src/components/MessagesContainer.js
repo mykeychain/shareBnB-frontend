@@ -4,7 +4,6 @@ import UserContext from "../userContext";
 import Conversation from "./Conversation";
 import MessagedUserList from "./MessagedUserList";
 import MessagingForm from "./MessagingForm";
-import NewMessageModal from "./NewMessageModal";
 
 /** MessagesContainer
  * 
@@ -22,7 +21,7 @@ import NewMessageModal from "./NewMessageModal";
  *  
  *  Routes -> MessagesContainer -> { MessagedUserList, Conversation, MessagingForm }
  */
-export default function MessagesContainer() {
+export default function MessagesContainer({ sendMessage }) {
     const [users, setUsers] = useState([])
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [messages, setMessages] = useState([]);
@@ -64,8 +63,8 @@ export default function MessagesContainer() {
         setMessagingUser(evt.target.innerHTML);
     }
 
-    async function sendMessage(message, toUserId=selectedUserId) {
-        const msg = await ShareBnBApi.send(toUserId, message);
+    async function handleSend(message, toUserId=selectedUserId) {
+        const msg = await sendMessage(message, toUserId);
         setMessages([...messages, msg]);
     }
 
@@ -78,7 +77,6 @@ export default function MessagesContainer() {
                 <div className="col-8">
                     {selectedUserId && <h1>{messagingUser}</h1>}
                 </div>
-                <NewMessageModal sendMessage={sendMessage} />
             </div> 
             
             <div className='row mt-2'>
@@ -91,7 +89,7 @@ export default function MessagesContainer() {
                 <div className="col-9">
                     <Conversation messages={messages}/>
                     <div className="mb-3 mt-5">
-                        {selectedUserId && <MessagingForm sendMessage={sendMessage}/>}
+                        {selectedUserId && <MessagingForm sendMessage={handleSend}/>}
                     </div>
                 </div>
             </div>

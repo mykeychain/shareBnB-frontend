@@ -15,7 +15,7 @@ import Signup from "./Signup";
  *                     Profile }
  */
 
-function Routes( {login, signUp, logout} ) {
+function Routes( {login, signUp, sendMessage} ) {
     return (
         <Switch>
             <Route exact path="/">
@@ -34,10 +34,10 @@ function Routes( {login, signUp, logout} ) {
                 <ListingForm />
             </Route>
             <Route exact path="/listings/:id">
-                <ListingDetails />
+                <ListingDetails sendMessage={sendMessage}/>
             </Route>
             <Route exact path="/messages">
-                <MessagesContainer />
+                <MessagesContainer sendMessage={sendMessage}/>
             </Route>
             <Route exact path="/profile">
                 <Profile />

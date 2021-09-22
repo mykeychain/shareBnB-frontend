@@ -93,11 +93,17 @@ function App() {
     setCurrentUser({});
   }
 
+  // sendMessage: send message to specified user
+  async function sendMessage(message, toUserId) {
+    const msg = await ShareBnBApi.send(toUserId, message);
+    return msg;
+  }
+
   return (
     <div className='ShareBnBApp'>
       <UserContext.Provider value = {{ currentUser, setCurrentUser }}>
         <Navbar logout={logout} />
-        {isAuthenticating ? <Loading /> : <Routes login={login} signUp={signUp} />}
+        {isAuthenticating ? <Loading /> : <Routes login={login} signUp={signUp} sendMessage={sendMessage} />}
       </UserContext.Provider>
     </div>
   );

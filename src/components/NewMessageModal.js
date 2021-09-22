@@ -1,52 +1,42 @@
 import { useState } from "react";
 import MessagingForm from "./MessagingForm";
 
-export default function NewMessageModal({ sendMessage }) {
-    const [toUser, setToUser] = useState("");
+export default function NewMessageModal({ sendMessage, host }) {
+    const [showModal, setShowModal] = useState(false);
 
-    function handleChange(evt) {
-        const value = evt.target.value;
-        setToUser(value);
+    async function handleSend(message) {
+        await sendMessage(message, host.id);
+        toggleShowModal();
     }
 
-    function handleSend(message) {
-        sendMessage(message);
+    function toggleShowModal() {
+        setShowModal(prevState => !prevState);
     }
 
     return (
-        <div className="col-1">
+        <div className="col">
             <button
                 type="button"
                 className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                <i className="bi bi-pencil-square"></i>
+                onClick={toggleShowModal}>
+                <i className="bi bi-pencil-square"></i> Message the host
             </button>
 
-            <div
-                className="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            {showModal && (<div className="modal" style={{display: "block"}}>
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
-                                <input
-                                    className="form-control"
-                                    type="text" value={toUser}
-                                    onChange={handleChange}
-                                    placeholder="Who would you like to message?" />
+                            <h5 className="modal-title" id="messageModalLabel">
+                                { `${host.first_name} ${host.last_name}`}
                             </h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button onClick={toggleShowModal} type="button" className="btn-close"></button>
                         </div>
                         <div className="modal-body">
                             <MessagingForm sendMessage={handleSend}/>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>)}
         </div>
     )
 }
