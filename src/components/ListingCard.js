@@ -20,7 +20,7 @@ export default function ListingCard({ listing }) {
                         {listing.photos.map(photo => (
                             <Link to={`/listings/${listing.id}`} key={photo.id}>
                                 <div className="ListingCardCarouselPhoto" key={photo.id}>
-                                    <img src={photo.url} alt=""/>
+                                    <img src={photo.small_photo_url} alt=""/>
                                 </div>
                             </Link>
                         ))}

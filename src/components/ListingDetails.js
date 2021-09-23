@@ -42,7 +42,7 @@ export default function ListingDetails({ sendMessage }) {
                             <Carousel showStatus={false}>
                                 {listing.photos.map(photo => (
                                     <div key={photo.id}>
-                                        <img src={photo.url} alt=""/>
+                                        <img src={photo.large_photo_url} alt=""/>
                                     </div>
                                 ))}
                             </Carousel>
