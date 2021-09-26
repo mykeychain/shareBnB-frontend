@@ -2,11 +2,11 @@
 
 ShareBnB is a fullstack Airbnb clone where hosts can list their backyard or pool spaces for rent by other users. ShareBnB utilizes a React frontend, a Flask backend, and AWS S3 for photo uploads. For ease of deployment, the backend repository has been separated and can be found [here](https://github.com/ncuenca/shareBnB-backend).
 
-ShareBnB allows users to sign-up or login. Authentication is implemented with JSON Web Tokens and middleware. Once logged in, users have access to the following features: 
-    - view all current listings
-    - search for listings by name
-    - add a listing and upload their own photos
-    - send and receive private messages with other users
+ShareBnB allows users to sign-up or login. Authentication is implemented with Bcrypt and persists with JSON Web Tokens. Once logged in, users have access to the following features: 
+- view all current listings
+- search for listings by name
+- add a listing and upload their own photos
+- send and receive private messages with other users
 
 You can view the deployed version of ShareBnB here.
 
