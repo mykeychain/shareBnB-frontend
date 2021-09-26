@@ -25,6 +25,10 @@ You can view the deployed version of ShareBnB here.
 3. Install dependencies `npm install`
 4. Start the React App `npm start`
 
+## Authors
+
+ShareBnB is authored by [Mike Chang](https://github.com/mykeychain) and [Nate Cuenca](https://github.com/ncuenca).
+
 ## Technologies Used
 - [React](https://reactjs.org/) - Javascript frontend framework
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Python backend framework
