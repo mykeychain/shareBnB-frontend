@@ -10,6 +10,8 @@ ShareBnB allows users to sign-up or login. Authentication is implemented with Bc
 
 You can view the deployed version of ShareBnB here.
 
+The fake users, user information, and listings are created with Faker and are not real people nor addresses. 
+
 <br>
 
 ## React Component Hierarchy
