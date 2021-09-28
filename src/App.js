@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 // import Popper from 'popper.js';
 // import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import Routes from "./components/Routes";
 import { useEffect, useState } from 'react';
 import ShareBnBApi from './api';
